@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="prefSortLabel" >
+        <item>@string/popularLabel</item>
+        <item>@string/topRatedLabel</item>
+    </string-array>
+
+    <string-array name="prefSortValues" >
+        <item>@string/popularValue</item>
+        <item>@string/topRatedValue</item>
+    </string-array>
+
+</resources>

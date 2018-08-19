@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Popular Movies</string>
+    <string name="movie_picture_content_description">thumbnail for current movie</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- settings here -->
+    <string name="pref_sort_key">sort</string>
+    <string name="pref_sort_title">Sort by</string>
+
+
+    <string name="action_settings">Settings</string>
+    <string name="popularLabel">popular</string>
+    <string name="topRatedLabel">top rated</string>
+    <string name="popularValue">popular</string>
+    <string name="topRatedValue">top_rated</string>
+    <string name="details_activity">Details</string>
+    <string name="img_description">movie thumbnail</string>
+
+</resources>
