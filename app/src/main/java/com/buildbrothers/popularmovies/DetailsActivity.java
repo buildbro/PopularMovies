@@ -49,7 +49,7 @@ public class DetailsActivity extends AppCompatActivity {
             mTitleTv.setText(title);
             mOverviewTv.setText(overview);
 
-            ImageView moviePoster = (ImageView) findViewById(R.id.image);
+            ImageView moviePoster = findViewById(R.id.image);
             Picasso.with(this)
                     .load(imageUrl)
                     .into(moviePoster);

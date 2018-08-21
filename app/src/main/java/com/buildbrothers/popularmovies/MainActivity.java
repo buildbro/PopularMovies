@@ -8,13 +8,13 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.PreferenceManager;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.GridView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.buildbrothers.popularmovies.utils.MoviesJsonUtils;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.RequestParams;
 import com.loopj.android.http.TextHttpResponseHandler;
@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     public static final String API_URL = "http://api.themoviedb.org/3/movie/";
 
     private MoviesAdapter moviesAdapter;
-    String jsonResponse;
 
     private ProgressBar progressBar;
 
@@ -37,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        progressBar = (ProgressBar) findViewById(R.id.progress);
+        progressBar = findViewById(R.id.progress);
 
         String fullUrl = API_URL + getSortType();
         requestMovies(fullUrl);
@@ -55,10 +54,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, String res) {
                     progressBar.setVisibility(ProgressBar.GONE);
-                    jsonResponse = res;
-                    moviesAdapter = new MoviesAdapter(MainActivity.this, Arrays.asList(MoviesJsonUtils.parseMoviesJson(jsonResponse)));
+                    moviesAdapter = new MoviesAdapter(MainActivity.this, Arrays.asList(MoviesJsonUtils.parseMoviesJson(res)));
 
-                    GridView gridView = (GridView) findViewById(R.id.movies_grid);
+                    GridView gridView = findViewById(R.id.movies_grid);
                     gridView.setAdapter(moviesAdapter);
 
                 }
@@ -126,7 +124,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager
                 = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetInfo = connectivityManager.getActiveNetworkInfo();
-        return activeNetInfo != null && activeNetInfo.isConnected();
+        if (connectivityManager != null) {
+            NetworkInfo activeNetInfo = connectivityManager.getActiveNetworkInfo();
+            return activeNetInfo != null && activeNetInfo.isConnected();
+        }
+        return false;
     }
 }
