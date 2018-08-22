@@ -29,7 +29,7 @@ public class DetailsActivity extends AppCompatActivity {
     TextView mReleaseDateTv;
 
     public static final String DATE_INPUT_FORMAT = "yyyy-MM-dd";
-    public static final String DATE_OUTPUT_FORMAT = "MMM, yyyy";
+    public static final String DATE_OUTPUT_FORMAT = "MMM dd, yyyy";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
