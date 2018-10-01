@@ -24,7 +24,8 @@ import java.util.Arrays;
 import cz.msebera.android.httpclient.Header;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
-    public static final String API_KEY = BuildConfig.ApiKey;
+    //TODO(" Place your APY Key below")
+    public static final String API_KEY = "";
     public static final String API_URL = "http://api.themoviedb.org/3/movie/";
 
     private MoviesAdapter moviesAdapter;
